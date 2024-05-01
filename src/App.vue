@@ -2,7 +2,7 @@
 import RemoteGameSmall from './components/RemoteGameSmall.vue'
 import { useGameStore } from '~/stores/game'
 
-const game = useGameStore()
+const game = useGameStore() 
 
 const params = new URLSearchParams(window.location.search)
 const gameId = params.get('game')
