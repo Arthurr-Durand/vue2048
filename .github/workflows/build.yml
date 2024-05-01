@@ -31,3 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+    archive:
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-package
+        path: - dist/
