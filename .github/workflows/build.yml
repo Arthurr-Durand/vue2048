@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -20,8 +23,17 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Run static analysis and unit tests
+        if: ${{ github.event_name == 'pull_request' }}
+        run:
+          pnpm lint
+          pnpm type-check
+        
+          pnpm test
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
+        if: ${{ github.event_name == 'push' }}
         with:
           name: app-package
           path: dist
