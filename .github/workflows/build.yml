@@ -43,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: QA deployment
+        run: pnpm dlx @azure/static-web-apps-cli deploy ./dist --app-name stapp-vue2048-qa --env=qatest --token=$STATIC_WEB_APPS_API_TOKEN
 
   deploy-prod:
     needs: deploy-qa
