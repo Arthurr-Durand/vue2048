@@ -44,6 +44,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: app-package
+          path: dist
+
       - uses: actions/checkout@v3
       - name: Install Azure Static Web Apps CLI
         run: |
