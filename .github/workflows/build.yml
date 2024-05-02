@@ -45,6 +45,7 @@ jobs:
         with:
           name: app-package
           path: dist
+          retention-days: ${{ github.ref == 'refs/heads/main' && 7 || 1 }}
 
   deploy-qa:
     needs: build
