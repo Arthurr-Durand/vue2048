@@ -8,6 +8,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      run_static_analysis_and_tests:
+        description: "Indiquer si vous souhaitez lancer les analyses statiques et les tests (true/false)"
+        required: false
+        default: "true"
   schedule:
     - cron: "25 18 * * 3"
 
