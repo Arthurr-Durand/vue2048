@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'docs/**'
+      - "docs/**"
   pull_request:
     branches:
       - main
     paths-ignore:
-      - 'docs/**'
+      - "docs/**"
   workflow_dispatch:
     inputs:
       run_static_analysis_and_tests:
@@ -59,6 +59,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
+          run: |
+            ls -la dist
           path: dist
 
       - uses: actions/checkout@v3
