@@ -72,10 +72,10 @@ jobs:
         run: pnpm install
       - name: Install Azure Static Web Apps CLI
         run: |
-          pnpm install -g @azure/static-web-apps-cli
+          npm install -g swa-cli
       - name: Deploy to QA
         run: |
-          npx swa @azure/static-web-apps-cli deploy ./dist --app-name stapp-vue2048-qa --environment qa
+          swa deploy --app-location dist --token ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
 
   deploy-prod:
     needs: deploy-qa
