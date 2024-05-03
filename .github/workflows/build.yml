@@ -72,7 +72,7 @@ jobs:
         run: pnpm install
       - name: Install Azure Static Web Apps CLI
         run: |
-          npm install -g swa-cli
+          pnpm install -g swa-cli
       - name: Deploy to QA
         run: |
           swa deploy --app-location dist --token ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
